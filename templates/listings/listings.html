@@ -1,0 +1,15 @@
+<!-- templates/listings.html -->
+
+{% extends 'accounts/base.html' %}
+
+{% block content %}
+
+  {% for listing in listings %}
+    <div>
+      <h2>{{ listing.name }}</h2>
+      <p>{{ listing.description }}</p>
+      <!-- Add more fields -->
+    </div>
+  {% endfor %}
+
+{% endblock %}

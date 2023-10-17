@@ -8,6 +8,45 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import serializers
 
+
+
+
+
+from django.shortcuts import render, redirect
+
+
+# New function-based views for template rendering
+def register_view(request):
+    if request.method == 'POST':
+        # Handle registration logic
+        # Redirect to some page
+        return redirect('')
+    return render(request, 'accounts/register.html')
+
+def login_view(request):
+    if request.method == 'POST':
+        # Handle login logic
+        # Redirect to some page
+        return redirect('')
+    return render(request, 'accounts/login.html')
+
+def profile_view(request):
+    if request.method == 'POST':
+        # Handle profile update logic
+        # Redirect to some page
+        return redirect('')
+    return render(request, 'accounts/profile.html')
+
+# ... (existing API views)
+
+
+
+
+############################# API endpoints for mobile or front-end frameworks if needed.##################
+
+
+
+
 # Create a User Serializer Class
 class UserSerializer(serializers.ModelSerializer):
     class Meta:

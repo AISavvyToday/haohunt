@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+import os
 
 from pathlib import Path
 
@@ -20,7 +21,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+
+
+
+# from decouple import Config
+
+# config = Config(".env")
+
 SECRET_KEY = 'django-insecure-!nfsw39kooh6-qf7=0gb9ggr))p+#f8(%930_lzjr$=w&f_sv$'
+# SECRET_KEY = config("SECRET_KEY")
+# OPENAI_API_KEY = config("OPENAI_API_KEY")
+# DEBUG = config("DEBUG", default=False, cast=bool)
+# DATABASE_URL = config("DATABASE_URL")
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -41,7 +54,7 @@ INSTALLED_APPS = [
     'listings',
     'accounts',
     'rest_framework',
-    'django-filter',
+    # 'django_filter',
 ]
 
 MIDDLEWARE = [
@@ -59,7 +72,7 @@ ROOT_URLCONF = 'haohunt.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -135,6 +148,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
