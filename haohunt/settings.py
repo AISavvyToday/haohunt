@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'core',
     'listings',
     'accounts',
-    'rest_framework'
+    'rest_framework',
+    'django-filter',
 ]
 
 MIDDLEWARE = [
